@@ -184,6 +184,8 @@
 		46EDEE6719832A3B00241385 /* MPNativeAdUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EDEE6619832A3B00241385 /* MPNativeAdUtils.m */; };
 		46EDEE6819832A3B00241385 /* MPNativeAdUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EDEE6619832A3B00241385 /* MPNativeAdUtils.m */; };
 		46EDEE6919832A3B00241385 /* MPNativeAdUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EDEE6619832A3B00241385 /* MPNativeAdUtils.m */; };
+		493A976B1FA8936400FA02FB /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 493A97691FA8936300FA02FB /* Info.plist */; };
+		493A976C1FA8936400FA02FB /* MopubSDKKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 493A976A1FA8936400FA02FB /* MopubSDKKit.h */; };
 		494A122C1FA733DF00A1F2A4 /* MOPUBPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57AC69321BB21FA20053C556 /* MOPUBPlayerView.m */; };
 		494A122D1FA733E200A1F2A4 /* MOPUBPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57AC69341BB21FA20053C556 /* MOPUBPlayerViewController.m */; };
 		494A122E1FA733E500A1F2A4 /* MOPUBReplayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57AC69361BB21FA20053C556 /* MOPUBReplayView.m */; };
@@ -550,9 +552,8 @@
 		494A13981FA7352900A1F2A4 /* MoPub-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 5755ADCD19C79CAD0012B01F /* MoPub-Bridging-Header.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		494A13991FA7352900A1F2A4 /* MoPub.h in Headers */ = {isa = PBXBuildFile; fileRef = A71DB8111A2FE68300D3B229 /* MoPub.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		494A139A1FA7352900A1F2A4 /* MoPub.m in Sources */ = {isa = PBXBuildFile; fileRef = A71DB8121A2FE68300D3B229 /* MoPub.m */; };
-		49BEF95A1FA391FF00A0B390 /* MopubSDK_Framework.h in Headers */ = {isa = PBXBuildFile; fileRef = 49BEF9581FA391FF00A0B390 /* MopubSDK_Framework.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		49BEF95D1FA391FF00A0B390 /* MopubSDK_Framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BEF9561FA391FF00A0B390 /* MopubSDK_Framework.framework */; };
-		49BEF95E1FA391FF00A0B390 /* MopubSDK_Framework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 49BEF9561FA391FF00A0B390 /* MopubSDK_Framework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		49BEF95D1FA391FF00A0B390 /* MopubSDKKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BEF9561FA391FF00A0B390 /* MopubSDKKit.framework */; };
+		49BEF95E1FA391FF00A0B390 /* MopubSDKKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 49BEF9561FA391FF00A0B390 /* MopubSDKKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		49BEF9641FA392F500A0B390 /* MOPUBExperimentProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D54B551ED20521004E3C7B /* MOPUBExperimentProvider.m */; };
 		49BEF9651FA3930100A0B390 /* MOPUBActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57AC69201BB21FA20053C556 /* MOPUBActivityIndicatorView.m */; };
 		49BEF9661FA3930400A0B390 /* MOPUBAVPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 57AC69221BB21FA20053C556 /* MOPUBAVPlayer.m */; };
@@ -1759,7 +1760,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				49BEF95E1FA391FF00A0B390 /* MopubSDK_Framework.framework in Embed Frameworks */,
+				49BEF95E1FA391FF00A0B390 /* MopubSDKKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1899,9 +1900,9 @@
 		46ECD6E417E7A29500442BCA /* MPAdAlertManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPAdAlertManager.m; sourceTree = "<group>"; };
 		46EDEE6519832A3B00241385 /* MPNativeAdUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPNativeAdUtils.h; sourceTree = "<group>"; };
 		46EDEE6619832A3B00241385 /* MPNativeAdUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPNativeAdUtils.m; sourceTree = "<group>"; };
-		49BEF9561FA391FF00A0B390 /* MopubSDK_Framework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MopubSDK_Framework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		49BEF9581FA391FF00A0B390 /* MopubSDK_Framework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MopubSDK_Framework.h; sourceTree = "<group>"; };
-		49BEF9591FA391FF00A0B390 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		493A97691FA8936300FA02FB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		493A976A1FA8936400FA02FB /* MopubSDKKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MopubSDKKit.h; sourceTree = "<group>"; };
+		49BEF9561FA391FF00A0B390 /* MopubSDKKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MopubSDKKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A0144391B75432B001B649C /* MMAdSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MMAdSDK.framework; sourceTree = "<group>"; };
 		4A0C4BE319A42A4D00DE956C /* MPStreamAdPlacementData+Specs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MPStreamAdPlacementData+Specs.h"; sourceTree = "<group>"; };
 		4A0C4BE419A42A4D00DE956C /* MPStreamAdPlacementData+Specs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MPStreamAdPlacementData+Specs.m"; sourceTree = "<group>"; };
@@ -2805,7 +2806,7 @@
 				468BD68817E8CE4100F8849B /* CFNetwork.framework in Frameworks */,
 				AEE38894171F4F250019601C /* Twitter.framework in Frameworks */,
 				AEE38892171F4F200019601C /* Social.framework in Frameworks */,
-				49BEF95D1FA391FF00A0B390 /* MopubSDK_Framework.framework in Frameworks */,
+				49BEF95D1FA391FF00A0B390 /* MopubSDKKit.framework in Frameworks */,
 				AEE38890171F4F180019601C /* PassKit.framework in Frameworks */,
 				4A42C8CC1ADEF3CA0063F637 /* GoogleMobileAds.framework in Frameworks */,
 				AEE3888E171F4F060019601C /* MobileCoreServices.framework in Frameworks */,
@@ -3016,13 +3017,13 @@
 			path = AdAlerts;
 			sourceTree = "<group>";
 		};
-		49BEF9571FA391FF00A0B390 /* MopubSDK-Framework */ = {
+		49BEF9571FA391FF00A0B390 /* MopubSDKKit */ = {
 			isa = PBXGroup;
 			children = (
-				49BEF9581FA391FF00A0B390 /* MopubSDK_Framework.h */,
-				49BEF9591FA391FF00A0B390 /* Info.plist */,
+				493A97691FA8936300FA02FB /* Info.plist */,
+				493A976A1FA8936400FA02FB /* MopubSDKKit.h */,
 			);
-			path = "MopubSDK-Framework";
+			path = MopubSDKKit;
 			sourceTree = "<group>";
 		};
 		4A95FE1B191ADC9A0025724A /* Facebook */ = {
@@ -3684,7 +3685,7 @@
 				468BCD8619996B190054A051 /* MoPubSDK-APICheck */,
 				570A005C19D6206800065388 /* MoPubResources */,
 				2AAA8DFA1D95C77B006962E8 /* MoPubSDKTests */,
-				49BEF9571FA391FF00A0B390 /* MopubSDK-Framework */,
+				49BEF9571FA391FF00A0B390 /* MopubSDKKit */,
 				AEF1F32A16EF9AD700273462 /* Frameworks */,
 				AEF1F32916EF9AD700273462 /* Products */,
 				AEA97C8616EF9E450046D464 /* Externals */,
@@ -3702,7 +3703,7 @@
 				570A005B19D6206800065388 /* MoPub.bundle */,
 				2AAA8DF91D95C77B006962E8 /* MoPubSDKTests.xctest */,
 				BCA00B971EF47A91006FF762 /* libMoPubSDK-ExcludeNative.a */,
-				49BEF9561FA391FF00A0B390 /* MopubSDK_Framework.framework */,
+				49BEF9561FA391FF00A0B390 /* MopubSDKKit.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -4691,6 +4692,7 @@
 				494A13611FA734DE00A1F2A4 /* MPVASTResource.h in Headers */,
 				494A12CE1FA7349D00A1F2A4 /* MPAPIEndpoints.h in Headers */,
 				494A13411FA734D500A1F2A4 /* MPStoreKitProvider.h in Headers */,
+				493A976C1FA8936400FA02FB /* MopubSDKKit.h in Headers */,
 				494A12A81FA7348800A1F2A4 /* MPNativeCustomEventDelegate.h in Headers */,
 				494A128F1FA7348700A1F2A4 /* MPStaticNativeAdRenderer.h in Headers */,
 				494A12E51FA7349D00A1F2A4 /* MPXMLParser.h in Headers */,
@@ -4799,7 +4801,6 @@
 				494A13571FA734DE00A1F2A4 /* MPVASTLinearAd.h in Headers */,
 				494A13011FA734BD00A1F2A4 /* MPWebView.h in Headers */,
 				494A131F1FA734CD00A1F2A4 /* MPLogProvider.h in Headers */,
-				49BEF95A1FA391FF00A0B390 /* MopubSDK_Framework.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4842,9 +4843,9 @@
 			productReference = 468BCE1019996C550054A051 /* libMoPubSDK-APICheck.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		49BEF9551FA391FF00A0B390 /* MopubSDK-Framework */ = {
+		49BEF9551FA391FF00A0B390 /* MopubSDKKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 49BEF95F1FA391FF00A0B390 /* Build configuration list for PBXNativeTarget "MopubSDK-Framework" */;
+			buildConfigurationList = 49BEF95F1FA391FF00A0B390 /* Build configuration list for PBXNativeTarget "MopubSDKKit" */;
 			buildPhases = (
 				49BEF9631FA3922F00A0B390 /* ShellScript */,
 				49BEF9511FA391FF00A0B390 /* Sources */,
@@ -4856,9 +4857,9 @@
 			);
 			dependencies = (
 			);
-			name = "MopubSDK-Framework";
+			name = MopubSDKKit;
 			productName = "MopubSDK-Framework";
-			productReference = 49BEF9561FA391FF00A0B390 /* MopubSDK_Framework.framework */;
+			productReference = 49BEF9561FA391FF00A0B390 /* MopubSDKKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		570A005A19D6206800065388 /* MoPubResources */ = {
@@ -5016,7 +5017,7 @@
 				AEA97BDD16EF9C030046D464 /* Specs */,
 				570A005A19D6206800065388 /* MoPubResources */,
 				2AAA8DF81D95C77B006962E8 /* MoPubSDKTests */,
-				49BEF9551FA391FF00A0B390 /* MopubSDK-Framework */,
+				49BEF9551FA391FF00A0B390 /* MopubSDKKit */,
 			);
 		};
 /* End PBXProject section */
@@ -5133,6 +5134,7 @@
 				494A13721FA7351100A1F2A4 /* MPCloseBtn@2x.png in Resources */,
 				494A137D1FA7351500A1F2A4 /* MRAID.bundle in Resources */,
 				494A13811FA7351C00A1F2A4 /* MPDAAIcon.png in Resources */,
+				493A976B1FA8936400FA02FB /* Info.plist in Resources */,
 				494A13711FA7351100A1F2A4 /* MPCloseBtn.png in Resources */,
 				494A13731FA7351100A1F2A4 /* MPCloseBtn@3x.png in Resources */,
 				494A13831FA7351C00A1F2A4 /* MPDAAIcon@3x.png in Resources */,
@@ -6673,7 +6675,7 @@
 		};
 		49BEF95C1FA391FF00A0B390 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 49BEF9551FA391FF00A0B390 /* MopubSDK-Framework */;
+			target = 49BEF9551FA391FF00A0B390 /* MopubSDKKit */;
 			targetProxy = 49BEF95B1FA391FF00A0B390 /* PBXContainerItemProxy */;
 		};
 		A7A731CF18F5D38000E327C9 /* PBXTargetDependency */ = {
@@ -6864,13 +6866,13 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
-				INFOPLIST_FILE = "MopubSDK-Framework/Info.plist";
+				INFOPLIST_FILE = MopubSDKKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mopub.MopubSDK-Framework";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mopub.MopubSDKKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
@@ -6921,12 +6923,12 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
-				INFOPLIST_FILE = "MopubSDK-Framework/Info.plist";
+				INFOPLIST_FILE = MopubSDKKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mopub.MopubSDK-Framework";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mopub.MopubSDKKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
@@ -7354,7 +7356,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		49BEF95F1FA391FF00A0B390 /* Build configuration list for PBXNativeTarget "MopubSDK-Framework" */ = {
+		49BEF95F1FA391FF00A0B390 /* Build configuration list for PBXNativeTarget "MopubSDKKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				49BEF9601FA391FF00A0B390 /* Debug */,
