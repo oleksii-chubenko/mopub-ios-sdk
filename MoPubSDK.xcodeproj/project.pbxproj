@@ -186,7 +186,6 @@
 		46EDEE6919832A3B00241385 /* MPNativeAdUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EDEE6619832A3B00241385 /* MPNativeAdUtils.m */; };
 		493A976B1FA8936400FA02FB /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 493A97691FA8936300FA02FB /* Info.plist */; };
 		493A976C1FA8936400FA02FB /* MopubSDKKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 493A976A1FA8936400FA02FB /* MopubSDKKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		493A977A1FA8AC0C00FA02FB /* MoPubSDKKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 493A97791FA8AC0C00FA02FB /* MoPubSDKKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		493A977B1FA8ACB600FA02FB /* MoPub-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 5755ADCD19C79CAD0012B01F /* MoPub-Bridging-Header.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		493A977C1FA8AD4100FA02FB /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEA97CB016EF9E9F0046D464 /* AdSupport.framework */; };
 		493A977D1FA8AD4B00FA02FB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEA97BE216EF9C030046D464 /* CoreGraphics.framework */; };
@@ -200,7 +199,6 @@
 		493A97851FA8AD8C00FA02FB /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEA97CAE16EF9E980046D464 /* StoreKit.framework */; };
 		493A97861FA8AD9400FA02FB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE43419D16F93E2E00B73710 /* SystemConfiguration.framework */; };
 		493A97871FA8AD9A00FA02FB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEA97BDF16EF9C030046D464 /* UIKit.framework */; };
-		493A97881FA8AEA200FA02FB /* MPMockViewabilityAdapterAvid.h in Headers */ = {isa = PBXBuildFile; fileRef = BC2C5B581F5727D40025FFF5 /* MPMockViewabilityAdapterAvid.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		494A122C1FA733DF00A1F2A4 /* MOPUBPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57AC69321BB21FA20053C556 /* MOPUBPlayerView.m */; };
 		494A122D1FA733E200A1F2A4 /* MOPUBPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57AC69341BB21FA20053C556 /* MOPUBPlayerViewController.m */; };
 		494A122E1FA733E500A1F2A4 /* MOPUBReplayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57AC69361BB21FA20053C556 /* MOPUBReplayView.m */; };
@@ -1916,7 +1914,6 @@
 		46EDEE6619832A3B00241385 /* MPNativeAdUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPNativeAdUtils.m; sourceTree = "<group>"; };
 		493A97691FA8936300FA02FB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		493A976A1FA8936400FA02FB /* MopubSDKKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MopubSDKKit.h; sourceTree = "<group>"; };
-		493A97791FA8AC0C00FA02FB /* MoPubSDKKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoPubSDKKit.h; sourceTree = "<group>"; };
 		49BEF9561FA391FF00A0B390 /* MopubSDKKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MopubSDKKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A0144391B75432B001B649C /* MMAdSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MMAdSDK.framework; sourceTree = "<group>"; };
 		4A0C4BE319A42A4D00DE956C /* MPStreamAdPlacementData+Specs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MPStreamAdPlacementData+Specs.h"; sourceTree = "<group>"; };
@@ -3803,7 +3800,6 @@
 				5755ADCD19C79CAD0012B01F /* MoPub-Bridging-Header.h */,
 				A71DB8111A2FE68300D3B229 /* MoPub.h */,
 				A71DB8121A2FE68300D3B229 /* MoPub.m */,
-				493A97791FA8AC0C00FA02FB /* MoPubSDKKit.h */,
 			);
 			path = MoPubSDK;
 			sourceTree = "<group>";
@@ -4647,7 +4643,6 @@
 				494A12911FA7348700A1F2A4 /* MPAdPositioning.h in Headers */,
 				494A125C1FA7347400A1F2A4 /* MPMediationSettingsProtocol.h in Headers */,
 				494A12571FA7347400A1F2A4 /* MPRewardedVideoNetwork.h in Headers */,
-				493A97881FA8AEA200FA02FB /* MPMockViewabilityAdapterAvid.h in Headers */,
 				494A129F1FA7348800A1F2A4 /* MPNativeAdError.h in Headers */,
 				494A12A21FA7348800A1F2A4 /* MPNativeAdRequest.h in Headers */,
 				494A12951FA7348700A1F2A4 /* MPClientAdPositioning.h in Headers */,
@@ -4656,7 +4651,6 @@
 				494A125A1FA7347400A1F2A4 /* MPRewardedVideoError.h in Headers */,
 				494A138A1FA7352900A1F2A4 /* MPAdConversionTracker.h in Headers */,
 				494A12931FA7348700A1F2A4 /* MPNativeAdRenderingImageLoader.h in Headers */,
-				493A977A1FA8AC0C00FA02FB /* MoPubSDKKit.h in Headers */,
 				494A13861FA7352300A1F2A4 /* MPViewabilityTracker.h in Headers */,
 				494A12991FA7348700A1F2A4 /* MPNativeAd.h in Headers */,
 				494A129C1FA7348700A1F2A4 /* MPNativeAdConstants.h in Headers */,
