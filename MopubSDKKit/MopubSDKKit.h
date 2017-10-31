@@ -218,4 +218,4 @@ FOUNDATION_EXPORT const unsigned char MopubSDKKitVersionString[];
 #import "MPViewabilityAdapter.h"
 #import "MPViewabilityTracker.h"
 #import "MPWebView+Viewability.h"
-#import "MPViewabilityAdapterMoat.h"
+//#import "MPViewabilityAdapterMoat.h"

@@ -199,6 +199,7 @@
 		493A97851FA8AD8C00FA02FB /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEA97CAE16EF9E980046D464 /* StoreKit.framework */; };
 		493A97861FA8AD9400FA02FB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE43419D16F93E2E00B73710 /* SystemConfiguration.framework */; };
 		493A97871FA8AD9A00FA02FB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEA97BDF16EF9C030046D464 /* UIKit.framework */; };
+		493A97961FA8C63C00FA02FB /* MPRewardedVideo+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = B210EFD81CE6858C00945B8D /* MPRewardedVideo+Internal.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		494A122C1FA733DF00A1F2A4 /* MOPUBPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57AC69321BB21FA20053C556 /* MOPUBPlayerView.m */; };
 		494A122D1FA733E200A1F2A4 /* MOPUBPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57AC69341BB21FA20053C556 /* MOPUBPlayerViewController.m */; };
 		494A122E1FA733E500A1F2A4 /* MOPUBReplayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57AC69361BB21FA20053C556 /* MOPUBReplayView.m */; };
@@ -4780,6 +4781,7 @@
 				494A126D1FA7347F00A1F2A4 /* MPNativeAdRendererConstants.h in Headers */,
 				494A133B1FA734D500A1F2A4 /* MPLogging.h in Headers */,
 				494A134B1FA734DE00A1F2A4 /* MPVASTAd.h in Headers */,
+				493A97961FA8C63C00FA02FB /* MPRewardedVideo+Internal.h in Headers */,
 				494A126E1FA7347F00A1F2A4 /* MPNativeAdRendererImageHandler.h in Headers */,
 				494A12D81FA7349D00A1F2A4 /* MPKeywordProvider.h in Headers */,
 				494A13191FA734C400A1F2A4 /* MRProperty.h in Headers */,
