@@ -26,6 +26,8 @@ BOOL MPViewIsVisible(UIView *view);
 BOOL MPViewIntersectsParentWindowWithPercent(UIView *view, CGFloat percentVisible);
 NSString *MPResourcePathForResource(NSString *resourceName);
 NSArray *MPConvertStringArrayToURLArray(NSArray *strArray);
+UIApplication *MPSharedApplication();
+BOOL MPOpenURL(NSURL *url);
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /*
@@ -115,6 +117,6 @@ typedef void (^MPTelephoneConfirmationControllerClickHandler)(NSURL *targetTelep
 @interface MPTelephoneConfirmationController : NSObject <UIAlertViewDelegate>
 
 - (id)initWithURL:(NSURL *)url clickHandler:(MPTelephoneConfirmationControllerClickHandler)clickHandler;
-- (void)show;
+- (void)showFromViewController:(UIViewController *)viewController;
 
 @end

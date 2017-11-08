@@ -173,7 +173,7 @@
 - (NSUInteger)supportedInterfaceOrientations
 #endif
 {
-    return ([[UIApplication sharedApplication] mp_supportsOrientationMask:self.supportedOrientationMask]) ? self.supportedOrientationMask : UIInterfaceOrientationMaskAll;
+    return ([MPSharedApplication() mp_supportsOrientationMask:self.supportedOrientationMask]) ? self.supportedOrientationMask : UIInterfaceOrientationMaskAll;
 }
 
 - (BOOL)shouldAutorotate
@@ -184,7 +184,7 @@
 // shouldAutorotateToInterfaceOrientation is for ios 5.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return [[UIApplication sharedApplication] mp_doesOrientation:interfaceOrientation matchOrientationMask:self.supportedOrientationMask];
+    return [MPSharedApplication() mp_doesOrientation:interfaceOrientation matchOrientationMask:self.supportedOrientationMask];
 }
 
 @end

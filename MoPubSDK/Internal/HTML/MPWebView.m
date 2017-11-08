@@ -6,7 +6,7 @@
 //
 
 #import "MPWebView.h"
-
+#import "MPGlobal.h"
 #import <WebKit/WebKit.h>
 
 static BOOL const kMoPubAllowsInlineMediaPlaybackDefault = YES;
@@ -151,7 +151,7 @@ static UIView *gOffscreenView = nil;
     UIView *view = [[UIView alloc] initWithFrame:CGRectZero];
     view.clipsToBounds = YES;
 
-    UIWindow *appWindow = [[UIApplication sharedApplication] keyWindow];
+    UIWindow *appWindow = [MPSharedApplication() keyWindow];
     [appWindow addSubview:view];
 
     return view;

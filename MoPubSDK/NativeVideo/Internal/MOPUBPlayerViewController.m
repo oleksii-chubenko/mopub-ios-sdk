@@ -450,7 +450,7 @@ static const double kVideoFinishedBufferingAllowedError = 0.1;
 #pragma mark - auto play helper method
 - (BOOL)shouldStartNewPlayer
 {
-    UIApplicationState state = [[UIApplication sharedApplication] applicationState];
+    UIApplicationState state = [MPSharedApplication() applicationState];
     if (!self.startedLoading && !self.playing && !self.paused && state == UIApplicationStateActive) {
         return YES;
     }
@@ -459,7 +459,7 @@ static const double kVideoFinishedBufferingAllowedError = 0.1;
 
 - (BOOL)shouldResumePlayer
 {
-    UIApplicationState state = [[UIApplication sharedApplication] applicationState];
+    UIApplicationState state = [MPSharedApplication() applicationState];
     if (self.startedLoading && self.paused == YES && self.displayMode == MOPUBPlayerDisplayModeInline
         && state == UIApplicationStateActive) {
         return YES;

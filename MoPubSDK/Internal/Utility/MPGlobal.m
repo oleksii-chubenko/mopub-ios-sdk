@@ -14,6 +14,7 @@
 
 #import <sys/types.h>
 #import <sys/sysctl.h>
+#import <objc/message.h>
 
 static UIWindow *_keyWindow = nil;
 
@@ -24,7 +25,7 @@ NSString *MPSHA1Digest(NSString *string);
 
 UIInterfaceOrientation MPInterfaceOrientation()
 {
-    return [UIApplication sharedApplication].statusBarOrientation;
+    return MPSharedApplication().statusBarOrientation;
 }
 
 void MPSetKeyWindow(UIWindow *window)
@@ -34,14 +35,14 @@ void MPSetKeyWindow(UIWindow *window)
 
 UIWindow *MPKeyWindow()
 {
-    return _keyWindow ?: [UIApplication sharedApplication].keyWindow;
+    return _keyWindow ?: MPSharedApplication().keyWindow;
 }
 
 CGFloat MPStatusBarHeight() {
-    if ([UIApplication sharedApplication].statusBarHidden) return 0.0f;
+    if (MPSharedApplication().statusBarHidden) return 0.0f;
 
-    CGFloat width = CGRectGetWidth([UIApplication sharedApplication].statusBarFrame);
-    CGFloat height = CGRectGetHeight([UIApplication sharedApplication].statusBarFrame);
+    CGFloat width = CGRectGetWidth(MPSharedApplication().statusBarFrame);
+    CGFloat height = CGRectGetHeight(MPSharedApplication().statusBarFrame);
 
     return (width < height) ? width : height;
 }
@@ -229,6 +230,45 @@ NSArray *MPConvertStringArrayToURLArray(NSArray *strArray)
     return urls;
 }
 
+UIApplication *MPSharedApplication()
+{
+    static SEL selector = NULL;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        selector = sel_getUid("sharedApplication");
+    });
+    
+    static UIApplication *application = nil;
+
+    if (application) {
+        return application;
+    }
+
+    if (!_keyWindow) {
+        return ((id(*)(id, SEL))objc_msgSend)([UIApplication class], selector);
+    }
+    
+    for (id responder = _keyWindow; responder; responder = [responder nextResponder]) {
+        if ([responder isKindOfClass:[UIApplication class]]) {
+            application = responder;
+            break;
+        }
+    }
+    
+    return application;
+}
+
+BOOL MPOpenURL(NSURL *url)
+{
+    static SEL selector = NULL;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        selector = sel_getUid("openURL:");
+    });
+    
+    return ((BOOL(*)(id, SEL, NSURL *))objc_msgSend)(MPSharedApplication(), selector, url);
+}
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 @implementation UIDevice (MPAdditions)
@@ -254,7 +294,7 @@ NSArray *MPConvertStringArrayToURLArray(NSArray *strArray)
     // Displaying the status bar should use no animation.
     UIStatusBarAnimation animation = hidden ?
     UIStatusBarAnimationFade : UIStatusBarAnimationNone;
-    [[UIApplication sharedApplication] setStatusBarHidden:hidden withAnimation:animation];
+    [MPSharedApplication() setStatusBarHidden:hidden withAnimation:animation];
 }
 
 - (BOOL)mp_supportsOrientationMask:(UIInterfaceOrientationMask)orientationMask
@@ -319,9 +359,7 @@ NSArray *MPConvertStringArrayToURLArray(NSArray *strArray)
 
 @interface MPTelephoneConfirmationController ()
 
-@property (nonatomic, strong) UIAlertView *alertView;
-@property (nonatomic, strong) NSURL *telephoneURL;
-@property (nonatomic, copy) MPTelephoneConfirmationControllerClickHandler clickHandler;
+@property (nonatomic, strong) UIAlertController *alertView;
 
 @end
 
@@ -347,19 +385,20 @@ NSArray *MPConvertStringArrayToURLArray(NSArray *strArray)
             }
         }
 
-        _alertView = [[UIAlertView alloc] initWithTitle: @"Are you sure you want to call?"
-                                                message:phoneNumber
-                                               delegate:self
-                                      cancelButtonTitle:@"Cancel"
-                                      otherButtonTitles:@"Call", nil];
-        self.clickHandler = clickHandler;
-
-        // We want to manually handle telPrompt scheme alerts.  So we'll convert telPrompt schemes to tel schemes.
+        NSURL *telephoneURL;
         if ([url mp_hasTelephonePromptScheme]) {
-            self.telephoneURL = [NSURL URLWithString:[NSString stringWithFormat:@"tel://%@", phoneNumber]];
+            telephoneURL = [NSURL URLWithString:[NSString stringWithFormat:@"tel://%@", phoneNumber]];
         } else {
-            self.telephoneURL = url;
+            telephoneURL = url;
         }
+
+        _alertView = [UIAlertController alertControllerWithTitle:@"Are you sure you want to call?" message:phoneNumber preferredStyle:UIAlertControllerStyleAlert];
+        [self.alertView addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            clickHandler(telephoneURL, NO);
+        }]];
+        [self.alertView addAction:[UIAlertAction actionWithTitle:@"Call" style:0 handler:^(UIAlertAction * _Nonnull action) {
+            clickHandler(telephoneURL, YES);
+        }]];
     }
 
     return self;
@@ -367,25 +406,12 @@ NSArray *MPConvertStringArrayToURLArray(NSArray *strArray)
 
 - (void)dealloc
 {
-    self.alertView.delegate = nil;
-    [self.alertView dismissWithClickedButtonIndex:0 animated:YES];
+    [self.alertView dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)show
+- (void)showFromViewController:(UIViewController *)viewController
 {
-    [self.alertView show];
-}
-
-#pragma mark - UIAlertViewDelegate
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    BOOL confirmed = (buttonIndex == 1);
-
-    if (self.clickHandler) {
-        self.clickHandler(self.telephoneURL, confirmed);
-    }
-
+    [viewController presentViewController:self.alertView animated:YES completion:nil];
 }
 
 @end

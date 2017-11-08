@@ -227,10 +227,10 @@ static void exponentialDecayInterpolation(void *info, const CGFloat *input, CGFl
 
     CGPoint originalCenter = _closeButtonPortraitCenter;
     CGPoint center = originalCenter;
-    BOOL statusBarHidden = [UIApplication sharedApplication].statusBarHidden;
+    BOOL statusBarHidden = MPSharedApplication().statusBarHidden;
     CGFloat statusBarOffset = (statusBarHidden) ? 0.0 : 20.0;
 
-    UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
+    UIInterfaceOrientation orientation = [MPSharedApplication() statusBarOrientation];
     switch (orientation) {
         case UIInterfaceOrientationLandscapeLeft:
             center.x = CGRectGetMaxX(self.bounds) - originalCenter.x + statusBarOffset;
@@ -293,7 +293,7 @@ static void exponentialDecayInterpolation(void *info, const CGFloat *input, CGFl
 
 - (void)setTransformForCurrentOrientationAnimated:(BOOL)animated
 {
-    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+    UIInterfaceOrientation orientation = MPSharedApplication().statusBarOrientation;
     float angle = 0;
     if (UIInterfaceOrientationIsPortrait(orientation)) {
         if (orientation == UIInterfaceOrientationPortraitUpsideDown) {

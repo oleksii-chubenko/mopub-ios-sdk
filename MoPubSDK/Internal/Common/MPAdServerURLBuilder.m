@@ -165,7 +165,7 @@ static NSInteger const kAdSequenceNone = -1;
 
 + (NSString *)queryParameterForOrientation
 {
-    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+    UIInterfaceOrientation orientation = MPSharedApplication().statusBarOrientation;
     NSString *orientString = UIInterfaceOrientationIsPortrait(orientation) ?
         kMoPubInterfaceOrientationPortrait : kMoPubInterfaceOrientationLandscape;
     return [NSString stringWithFormat:@"&o=%@", orientString];

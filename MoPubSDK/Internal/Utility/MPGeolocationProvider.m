@@ -71,12 +71,12 @@ const NSTimeInterval kMPLocationUpdateInterval = 10.0 * 60.0;
         }
 
         // Avoid processing location updates when the application enters the background.
-        [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidEnterBackgroundNotification object:[UIApplication sharedApplication] queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+        [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidEnterBackgroundNotification object:MPSharedApplication() queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
             [self stopAllCurrentOrScheduledLocationUpdates];
         }];
 
         // Re-activate location updates when the application comes back to the foreground.
-        [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationWillEnterForegroundNotification object:[UIApplication sharedApplication] queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+        [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationWillEnterForegroundNotification object:MPSharedApplication() queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
             if (_locationUpdatesEnabled) {
                 [self resumeLocationUpdatesAfterBackgrounding];
             }
@@ -89,8 +89,8 @@ const NSTimeInterval kMPLocationUpdateInterval = 10.0 * 60.0;
 
 - (void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidEnterBackgroundNotification object:[UIApplication sharedApplication]];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillEnterForegroundNotification object:[UIApplication sharedApplication]];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidEnterBackgroundNotification object:MPSharedApplication()];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillEnterForegroundNotification object:MPSharedApplication()];
 }
 
 #pragma mark - Public

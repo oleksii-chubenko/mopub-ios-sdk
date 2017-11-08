@@ -57,7 +57,7 @@ static const NSTimeInterval kFirstVisibilityTimestampNone = -1;
 
 - (void)tick:(NSTimer *)timer
 {
-    BOOL visible = MPViewIsVisible(self.adView) && MPViewIntersectsParentWindowWithPercent(self.adView, self.requiredViewVisibilityPercentage) && ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive);
+    BOOL visible = MPViewIsVisible(self.adView) && MPViewIntersectsParentWindowWithPercent(self.adView, self.requiredViewVisibilityPercentage) && ([MPSharedApplication() applicationState] == UIApplicationStateActive);
 
     if (visible) {
         NSTimeInterval now = [[NSDate date] timeIntervalSinceReferenceDate];

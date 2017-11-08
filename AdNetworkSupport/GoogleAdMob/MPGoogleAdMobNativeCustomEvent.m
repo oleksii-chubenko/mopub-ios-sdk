@@ -50,7 +50,7 @@ static GADAdChoicesPosition adChoicesPosition;
     return;
   }
 
-  UIWindow *window = [UIApplication sharedApplication].keyWindow;
+  UIWindow *window = MPSharedApplication().keyWindow;
   UIViewController *rootViewController = window.rootViewController;
   while (rootViewController.presentedViewController) {
     rootViewController = rootViewController.presentedViewController;

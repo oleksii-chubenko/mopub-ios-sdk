@@ -74,7 +74,7 @@ static NSString *const kMoPubMMAdapterDCN = @"dcn";
 #pragma mark - MMNativeAdDelegate
 
 - (UIViewController *)viewControllerForPresentingModalView {
-    return [UIApplication sharedApplication].delegate.window.rootViewController;
+    return MPSharedApplication().delegate.window.rootViewController;
 }
 
 - (void)nativeAdRequestDidSucceed:(MMNativeAd *)ad {

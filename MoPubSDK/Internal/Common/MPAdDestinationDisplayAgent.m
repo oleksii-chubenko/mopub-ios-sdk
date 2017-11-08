@@ -165,7 +165,7 @@ static NSString * const kDisplayAgentErrorDomain = @"com.mopub.displayagent";
 
 - (void)handleEnhancedDeeplinkRequest:(MPEnhancedDeeplinkRequest *)request
 {
-    BOOL didOpenSuccessfully = [[UIApplication sharedApplication] openURL:request.primaryURL];
+    BOOL didOpenSuccessfully = MPOpenURL(request.primaryURL);
     if (didOpenSuccessfully) {
         [self hideOverlay];
         [self.delegate displayAgentWillLeaveApplication];
@@ -253,7 +253,7 @@ static NSString * const kDisplayAgentErrorDomain = @"com.mopub.displayagent";
     if ([URL mp_hasTelephoneScheme] || [URL mp_hasTelephonePromptScheme]) {
         [self interceptTelephoneURL:URL];
     } else {
-        BOOL didOpenSuccessfully = [[UIApplication sharedApplication] openURL:URL];
+        BOOL didOpenSuccessfully = MPOpenURL(URL);
         if (didOpenSuccessfully) {
             [self.delegate displayAgentWillLeaveApplication];
         }
@@ -282,13 +282,13 @@ static NSString * const kDisplayAgentErrorDomain = @"com.mopub.displayagent";
         if (strongSelf) {
             if (confirmed) {
                 [strongSelf.delegate displayAgentWillLeaveApplication];
-                [[UIApplication sharedApplication] openURL:targetTelephoneURL];
+                MPOpenURL(targetTelephoneURL);
             }
             [strongSelf completeDestinationLoading];
         }
     }];
 
-    [self.telephoneConfirmationController show];
+    [self.telephoneConfirmationController showFromViewController:[self.delegate viewControllerForPresentingModalView]];
 }
 
 - (void)failedToResolveURLWithError:(NSError *)error

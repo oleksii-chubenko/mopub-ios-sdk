@@ -8,6 +8,7 @@
 #import "MPNativeCache.h"
 #import "MPDiskLRUCache.h"
 #import "MPLogging.h"
+#import "MPGlobal.h"
 
 typedef enum {
     MPNativeCacheMethodDisk = 0,
@@ -51,7 +52,7 @@ typedef enum {
 
         _cacheMethod = MPNativeCacheMethodDiskAndMemory;
 
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveMemoryWarning:) name:UIApplicationDidReceiveMemoryWarningNotification object:[UIApplication sharedApplication]];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveMemoryWarning:) name:UIApplicationDidReceiveMemoryWarningNotification object:MPSharedApplication()];
     }
 
     return self;

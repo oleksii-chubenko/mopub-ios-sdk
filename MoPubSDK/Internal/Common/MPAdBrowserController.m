@@ -18,7 +18,7 @@ static NSString * const kAdBrowserControllerNibName = @"MPAdBrowserController";
 
 @interface MPAdBrowserController ()
 
-@property (nonatomic, strong) UIActionSheet *actionSheet;
+@property (nonatomic, strong) UIAlertController *actionSheet;
 @property (nonatomic, strong) NSString *HTMLString;
 @property (nonatomic, assign) int webViewLoadCount;
 @property (nonatomic) MPLogEvent *dwellEvent;
@@ -207,24 +207,31 @@ static NSString * const kAdBrowserControllerNibName = @"MPAdBrowserController";
     if (self.actionSheet) {
         [self dismissActionSheet];
     } else {
-        self.actionSheet = [[UIActionSheet alloc] initWithTitle:nil
-                                                       delegate:self
-                                              cancelButtonTitle:@"Cancel"
-                                         destructiveButtonTitle:nil
-                                              otherButtonTitles:@"Open in Safari", nil];
-
-        if ([UIActionSheet instancesRespondToSelector:@selector(showFromBarButtonItem:animated:)]) {
-            [self.actionSheet showFromBarButtonItem:self.safariButton animated:YES];
-        } else {
-            [self.actionSheet showInView:self.webView];
-        }
+        self.actionSheet = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+        [self.actionSheet addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) { }]];
+        [self.actionSheet addAction:[UIAlertAction actionWithTitle:@"Open in Safari" style:0 handler:^(UIAlertAction * _Nonnull action) {
+            self.actionSheet = nil;
+            MPOpenURL(self.URL);
+        }]];
+        [self presentViewController:self.actionSheet animated:YES completion:nil];
+//        self.actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+//                                                       delegate:self
+//                                              cancelButtonTitle:@"Cancel"
+//                                         destructiveButtonTitle:nil
+//                                              otherButtonTitles:@"Open in Safari", nil];
+//
+//        if ([UIActionSheet instancesRespondToSelector:@selector(showFromBarButtonItem:animated:)]) {
+//            [self.actionSheet showFromBarButtonItem:self.safariButton animated:YES];
+//        } else {
+//            [self.actionSheet showInView:self.webView];
+//        }
     }
 }
 
 - (void)dismissActionSheet
 {
-    [self.actionSheet dismissWithClickedButtonIndex:0 animated:YES];
-
+    [self.actionSheet dismissViewControllerAnimated:YES completion:nil];
+    self.actionSheet = nil;
 }
 
 #pragma mark -
@@ -235,7 +242,7 @@ static NSString * const kAdBrowserControllerNibName = @"MPAdBrowserController";
     self.actionSheet = nil;
     if (buttonIndex == 0) {
         // Open in Safari.
-        [[UIApplication sharedApplication] openURL:self.URL];
+        MPOpenURL(self.URL);
     }
 }
 
@@ -252,7 +259,7 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
     BOOL appShouldOpenURL = ![self.URL.scheme isEqualToString:@"http"] && ![self.URL.scheme isEqualToString:@"https"];
 
     if (appShouldOpenURL) {
-        [[UIApplication sharedApplication] openURL:self.URL];
+        MPOpenURL(self.URL);
     }
 
     return !appShouldOpenURL;

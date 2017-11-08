@@ -219,7 +219,7 @@ static CGFloat const kStallSpinnerSize = 35.0f;
 
 - (void)layoutCtaButton
 {
-    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+    UIInterfaceOrientation orientation = MPSharedApplication().statusBarOrientation;
     if (UIInterfaceOrientationIsLandscape(orientation)) {
         self.ctaButton.mp_x = CGRectGetMaxX(self.playerView.frame) - kCtaButtonTrailingMarginLandscape - CGRectGetWidth(self.ctaButton.bounds);
         self.ctaButton.mp_y = CGRectGetMaxY(self.playerView.frame) - kCtaButtonBottomMarginLandscape - CGRectGetHeight(self.ctaButton.bounds);
@@ -350,7 +350,7 @@ static CGFloat const kStallSpinnerSize = 35.0f;
 
 - (void)setApplicationStatusBarHidden:(BOOL)hidden
 {
-    [[UIApplication sharedApplication] mp_preIOS7setApplicationStatusBarHidden:hidden];
+    [MPSharedApplication() mp_preIOS7setApplicationStatusBarHidden:hidden];
 }
 
 #pragma mark - Hidding status bar (iOS 7 and above)
