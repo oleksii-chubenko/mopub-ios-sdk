@@ -24,6 +24,7 @@
 @interface MPAdBrowserController : UIViewController <MPWebViewDelegate, UIActionSheetDelegate>
 
 @property (nonatomic, strong) IBOutlet MPWebView *webView;
+@property (nonatomic, strong) IBOutlet UIToolbar *toolbar;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem *backButton;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem *forwardButton;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem *refreshButton;

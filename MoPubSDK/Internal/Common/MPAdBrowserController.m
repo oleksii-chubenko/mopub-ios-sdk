@@ -100,6 +100,14 @@ static NSString * const kAdBrowserControllerNibName = @"MPAdBrowserController";
     self.forwardButton.title = nil;
     self.spinnerItem.customView = self.spinner;
     self.spinnerItem.title = nil;
+
+    [self.toolbar removeFromSuperview];
+    self.toolbar.autoresizingMask = 0;
+    self.toolbar.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview:self.toolbar];
+    [self.toolbar.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
+    [self.toolbar.widthAnchor constraintEqualToAnchor:self.view.widthAnchor].active = YES;
+    [self.toolbar.bottomAnchor constraintEqualToAnchor:self.bottomLayoutGuide.topAnchor].active = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated

@@ -128,6 +128,7 @@ static void exponentialDecayInterpolation(void *info, const CGFloat *input, CGFl
 - (void)show
 {
     [MPKeyWindow() addSubview:self];
+    self.frame = MPKeyWindow().bounds;
 
     [self setTransformForCurrentOrientationAnimated:NO];
 

@@ -15,6 +15,8 @@
 #import <sys/types.h>
 #import <sys/sysctl.h>
 
+static UIWindow *_keyWindow = nil;
+
 BOOL MPViewHasHiddenAncestor(UIView *view);
 UIWindow *MPViewGetParentWindow(UIView *view);
 BOOL MPViewIntersectsParentWindow(UIView *view);
@@ -25,9 +27,14 @@ UIInterfaceOrientation MPInterfaceOrientation()
     return [UIApplication sharedApplication].statusBarOrientation;
 }
 
+void MPSetKeyWindow(UIWindow *window)
+{
+    _keyWindow = window;
+}
+
 UIWindow *MPKeyWindow()
 {
-    return [UIApplication sharedApplication].keyWindow;
+    return _keyWindow ?: [UIApplication sharedApplication].keyWindow;
 }
 
 CGFloat MPStatusBarHeight() {

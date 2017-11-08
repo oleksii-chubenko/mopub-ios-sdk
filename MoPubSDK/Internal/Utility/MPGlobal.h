@@ -13,6 +13,7 @@
 #endif
 
 UIInterfaceOrientation MPInterfaceOrientation(void);
+void MPSetKeyWindow(UIWindow *window);
 UIWindow *MPKeyWindow(void);
 CGFloat MPStatusBarHeight(void);
 CGRect MPApplicationFrame(void);
